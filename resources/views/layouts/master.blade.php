@@ -147,17 +147,17 @@
 				<div class="row">
 					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
 						<div class="hero-text">
-							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh & Organic</p>
-								<h1>Delicious Seasonal Fruits</h1>
+							<div class="hero-text-tablecell">	
+								<p class="subtitle">coection of</p>
+								<h1>Devices</h1>
 								<div class="hero-btns">
-									<a href="shop.html" class="boxed-btn">Fruit Collection</a>
+									<a href="shop.html" class="boxed-btn">Device Collection</a>
 									<a href="contact.html" class="bordered-btn">Contact Us</a>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>	
 			</div>
 		</div>
 		<!-- single home slider -->
