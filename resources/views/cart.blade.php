@@ -3,6 +3,12 @@
     
 <div class="cart-section mt-150 mb-150">
     <div class="container">
+        @if (session('message'))
+                           
+        <div class="alert alert-danger" role="alert">
+            <p>{{ session('message') }}</p>
+          </div>
+        @endif
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="cart-table-wrap">
@@ -18,17 +24,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                           
                             @foreach ($orders as $item)
                             <tr class="table-body-row">
                                 <td class="product-remove"><a href="{{url('/cart/delete',$item->id)}}"><i class="far fa-window-close"></i></a></td>
                                 <td class="product-image"><img src="{{$item->product->image}}" alt=""></td>
                                 <td class="product-name">{{$item->product->name}}</td>
                                 <td class="product-price">{{$item->product->price}}</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
+                                <form action="{{url('/order/update',$item->id)}}" method="POST">
+                                    @csrf
+                                <td class="product-quantity"><input type="number" name="number" placeholder="0">
+                                    <button type="submit">Update</button>
+                                </td>
+
+                                </form>
                                 <td class="product-total">{{$item->number}}</td>
                             </tr>
                             @endforeach
-
+                           
                         </tbody>
                     </table>
                 </div>

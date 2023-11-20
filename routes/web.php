@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/order/{product_id}', [OrderController::class, 'store']);
     Route::get('/cart', [OrderController::class, 'index']);
     Route::get('/cart/delete/{id}', [OrderController::class, 'delete'])->name('delete.order');
+    Route::post('/order/update/{product_id}', [OrderController::class, 'update']);
+
 
 
 

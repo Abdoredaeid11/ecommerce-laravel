@@ -42,4 +42,24 @@ class OrderController extends Controller
         return redirect()->back();}
 
     }
+
+    public function update(Request $request, $id){
+        $order_id=$id;
+        $order=Order::findOrFail($order_id);
+        $product_id=$order->product_id;
+        $product=Product::findOrFail($product_id);
+        $order->number=$request->number;
+        
+        if($product->number<$order->number)
+        {return back()->with(['message' => 'Danger message']);
+        }
+        else{$newNumberProduct=$product->number - $order->number;
+            $product->number=$newNumberProduct;
+            $product->save();
+            $order->save();
+        }
+        return redirect()->back();
+
+
+    }
 }
