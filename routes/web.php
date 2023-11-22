@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cart', [OrderController::class, 'index']);
     Route::get('/cart/delete/{id}', [OrderController::class, 'delete'])->name('delete.order');
     Route::post('/order/update/{product_id}', [OrderController::class, 'update']);
-
-
-
-
 });
+
+
+    #################Adminnnnnn########################
+    Route::get('/admin/category/index', [AdminCategoryController::class, 'index']);
+
+
 

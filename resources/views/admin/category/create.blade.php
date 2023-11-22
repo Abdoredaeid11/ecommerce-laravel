@@ -3,10 +3,10 @@
     
 @endsection
 @section('title')
-    {{trans('admin_stitle_page_trans.create-category')}}
+    {{'create category'}}
 @endsection
 @section('title_page')
-    {{trans('admin_stitle_page_trans.create-category')}}
+{{'create category'}}
 @endsection
 @section('content')
 <!-- Form for creating a new category -->
