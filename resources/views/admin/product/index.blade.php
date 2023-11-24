@@ -11,7 +11,7 @@
 
 <div class="card">
 <div class="card-header">
-    <a href="/admin/category/create " class="btn btn-outline-primary">{{'create category'}} </a>
+    <a href="/admin/category/index" class="btn btn-outline-primary">{{'Categories'}} </a>
   </div>
  <div class="card-body">
     <table id="example1" class="table table-bordered table-striped">
@@ -20,7 +20,8 @@
         <th>#</th>
         <th>{{'name'}}</th>
         <th>{{'image'}}</th>
-        <th>{{'description'}}</th>
+        <th>{{'status '}}</th>
+        <th>{{'popular'}}</th>
         <th>{{'Actions'}}</th>
       </tr>
       </thead>
@@ -28,19 +29,31 @@
         @php
           $id=1;  
         @endphp
-@foreach ($categories as $category)
+@foreach ($products as $product)
     
         <tr>
             
             <td>{{$id++}}</td>
-            <td>{{$category->name}}</td>
-            <td><img src="{{url('assets/img/category',$category->image)}}" width="100" height="100" alt=""></td>
+            <td>{{$product->name}}</td>
+            <td><img src="{{Storage::url($product ->image)}}" width="100" height="100" alt=""></td>
             
- 
-            <td>{{$category->description}}</td>
-            <td> <a href="{{url('/admin/product/index',$category->id)}}"  class="btn btn-outline-success">{{'Show Products'}}</a>
-               <a href="{{url('/admin/category/edit',$category->id)}}" class="btn btn-outline-warning">{{'Edit'}}</a>
-               <a href="/admin/category/store" class="btn btn-outline-danger">{{'Delete'}}</a>
+            <td>  @if ($product ->status==1)
+              <span class="badge badge-success">{{'hidden'}}</span>
+                  
+            @else
+             <span class="badge badge-danger">{{'not hidden'}}</span>
+                  
+              @endif</td>
+            <td>  @if ($product ->popular==1)
+              <span class="badge badge-success">{{'popular'}}</span>
+                  
+            @else
+             <span class="badge badge-danger">{{'not popular'}}</span>
+                  
+              @endif</td>
+            <td> <a href="{{url('/admin/product/index',$product ->id)}}"  class="btn btn-outline-success">{{'Show'}}</a>
+               <a href="" class="btn btn-outline-warning">{{'Edit'}}</a>
+               <a href="" class="btn btn-outline-danger">{{'Delete'}}</a>
             </td>
 
           </tr>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 
 /*
@@ -46,8 +47,19 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 
-    #################Adminnnnnn########################
+    #################Adminnnnnn-Category########################
     Route::get('/admin/category/index', [AdminCategoryController::class, 'index']);
+    Route::get('/admin/category/create', [AdminCategoryController::class, 'create']);
+    Route::post('/admin/category/store', [AdminCategoryController::class, 'store']);
+    Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit']);
+    Route::put('/admin/category/update/{id}', [AdminCategoryController::class, 'update']);
+
+
+
+    
+    #################Adminnnnnn-Product########################
+    Route::get('/admin/product/index/{id}', [AdminProductController::class, 'index']);
+
 
 
 

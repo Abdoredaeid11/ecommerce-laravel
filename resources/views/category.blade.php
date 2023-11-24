@@ -20,7 +20,7 @@
                 <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="{{url('/products',$item->id)}}"><img  style="max-height: 250px;min-height:250px" src="{{url($item->image)}}" alt=""></a>
+                        <a href="{{url('/products',$item->id)}}"><img  style="max-height: 250px;min-height:250px" src="{{url('assets/img/category',$item->image)}}" alt=""></a>
                     </div>
                     <h3>{{$item->name}}</h3>
                     <a href="cart.html" class="cart-btn"></a>
