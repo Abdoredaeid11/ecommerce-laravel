@@ -40,7 +40,7 @@
             <td>{{$category->description}}</td>
             <td> <a href="{{url('/admin/product/index',$category->id)}}"  class="btn btn-outline-success">{{'Show Products'}}</a>
                <a href="{{url('/admin/category/edit',$category->id)}}" class="btn btn-outline-warning">{{'Edit'}}</a>
-               <a href="/admin/category/store" class="btn btn-outline-danger">{{'Delete'}}</a>
+               <a href="{{url('/admin/category/delete',$category->id)}}" class="btn btn-outline-danger">{{'Delete'}}</a>
             </td>
 
           </tr>

@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/admin/category/store', [AdminCategoryController::class, 'store']);
     Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit']);
     Route::put('/admin/category/update/{id}', [AdminCategoryController::class, 'update']);
+    Route::get('/admin/category/delete/{id}', [AdminCategoryController::class, 'destroy']);
+
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\File;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,6 +41,8 @@ class AdminCategoryController extends Controller
             $category->image=$filename;
             $category->save();
         }
+        return redirect('admin/category/index');
+
 }
 
 
@@ -60,22 +62,26 @@ class AdminCategoryController extends Controller
 
           // $vaildated=$request->vaildated(); ?????????????
          
-             $image=$category->image;
-             
-        if($request->hasFile('image')){
-            Storage::disk('public/assets/img/category')->delete($image);
-            $image=$request->file('image')->store('assets/img/category');
- 
-        }
-           $category->update([
-            'name'=>$request->name,
-            'description'=>$request->description ,
-            'image'=>$image,
+             $fileName=$category->image;
             
+             if ($fileName) {
+                $filePath = public_path("assets/img/category/$fileName");
 
-           ]);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+
+                }}
+
+                $file = $request->file('image');
+                $extenstion = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extenstion;
+                $file->move('assets/img/category', $filename);
+                    $category->name = $request->name;
+                    $category->description = $request->description;
+                    $category->image = $filename;
+                    $category->save();
            
-  return redirect()->url('admin/category/index');
+        return redirect()->url('admin/category/index');
            
             //code...
         } catch (\Exception $e) {
@@ -85,5 +91,23 @@ class AdminCategoryController extends Controller
         }
 
     }
+
+    public function destroy($id){
+        $category=Category::find($id);
+        $category->delete();
+        $fileName=$category->image;
+            
+             if ($fileName) {
+                $filePath = public_path("assets/img/category/$fileName");
+
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+
+                }}
+        return redirect('admin/category/index');
+
+    }
+
+
 
 }
