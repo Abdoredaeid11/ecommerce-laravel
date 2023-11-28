@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     #################Adminnnnnn-Category########################
-    Route::get('/admin/category/index', [AdminCategoryController::class, 'index']);
+    Route::get('/admin/category/index', [AdminCategoryController::class, 'index'])->name('dashboard');
     Route::get('/admin/category/create', [AdminCategoryController::class, 'create']);
     Route::post('/admin/category/store', [AdminCategoryController::class, 'store']);
     Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit']);
@@ -60,7 +60,12 @@ Route::group(['middleware' => ['auth']], function() {
 
     
     #################Adminnnnnn-Product########################
-    Route::get('/admin/product/index/{id}', [AdminProductController::class, 'index']);
+    Route::get('/admin/product/index/{id}', [AdminProductController::class, 'index'])->name('product.index');
+    Route::get('/admin/product/create/{id}', [AdminProductController::class, 'create']);
+    Route::post('/admin/product/store', [AdminProductController::class, 'store']);
+    Route::get('/admin/product/edit/{id}', [AdminProductController::class, 'edit']);
+    Route::put('/admin/product/update/{id}', [AdminProductController::class, 'update']);
+    Route::get('/admin/product/delete/{id}', [AdminProductController::class, 'destroy']);
 
 
 

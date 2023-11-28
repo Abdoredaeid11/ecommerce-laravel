@@ -11,8 +11,9 @@
 
 <div class="card">
 <div class="card-header">
-    <a href="/admin/category/index" class="btn btn-outline-primary">{{'Categories'}} </a>
+    <a href="{{url('admin/product/create',$category_id)}}" class="btn btn-outline-primary">{{'Create Product'}} </a>
   </div>
+  
  <div class="card-body">
     <table id="example1" class="table table-bordered table-striped">
       <thead>
@@ -35,7 +36,7 @@
             
             <td>{{$id++}}</td>
             <td>{{$product->name}}</td>
-            <td><img src="{{Storage::url($product ->image)}}" width="100" height="100" alt=""></td>
+            <td><img src="{{url('assets/img/products',$product->image)}}" width="100" height="100" alt=""></td>
             
             <td>  @if ($product ->status==1)
               <span class="badge badge-success">{{'hidden'}}</span>
@@ -52,8 +53,8 @@
                   
               @endif</td>
             <td> <a href="{{url('/admin/product/index',$product ->id)}}"  class="btn btn-outline-success">{{'Show'}}</a>
-               <a href="" class="btn btn-outline-warning">{{'Edit'}}</a>
-               <a href="" class="btn btn-outline-danger">{{'Delete'}}</a>
+               <a href="{{url('/admin/product/edit',$product ->id)}}" class="btn btn-outline-warning">{{'Edit'}}</a>
+               <a href="{{url('/admin/product/delete',$product ->id)}}" class="btn btn-outline-danger">{{'Delete'}}</a>
             </td>
 
           </tr>

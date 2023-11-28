@@ -25,6 +25,10 @@ class StoreProductRequest extends FormRequest
     {
         return [
             //
+            'name'=>'required',
+            'price'=>'required',
+            'description'=>'required',
+            'image'=>[ 'required','image','mimes:jpg,png,jpeg' ],
         ];
     }
 }

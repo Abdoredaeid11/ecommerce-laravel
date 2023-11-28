@@ -75,12 +75,12 @@ class AdminCategoryController extends Controller
                 $file = $request->file('image');
                 $extenstion = $file->getClientOriginalExtension();
                 $filename = time().'.'.$extenstion;
-                $file->move('assets/img/category', $filename);
                     $category->name = $request->name;
                     $category->description = $request->description;
                     $category->image = $filename;
                     $category->save();
-           
+                    $file->move('assets/img/category', $filename);
+
         return redirect()->url('admin/category/index');
            
             //code...
