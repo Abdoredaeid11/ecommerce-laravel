@@ -18,7 +18,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('admin/category/index')}}" class="nav-link {{Request::route()->getname() == 'dashboard'?'active':''}}">
+            <a href="{{url('admin/dashboard')}}" class="nav-link {{Request::route()->getname() == 'admindashboard'?'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 {{'Categories'}}
@@ -27,7 +27,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{Request::route()->getname() == 'categories.index' || Request::route()->getname() == 'categories.create'||Request::route()->getname() == 'categories.edit'||Request::route()->getname() == 'categories.show' ? 'active' : ''}}">
+            <a href="{{url('admin/category/index')}}" class="nav-link {{Request::route()->getname() == 'dashboard'?'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 {{'Category'}}

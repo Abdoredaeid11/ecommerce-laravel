@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 
@@ -61,6 +62,11 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     Route::group(['middleware' => ['auth','admin']], function () {
+
+    #################Adminnnnnn-Dashboard########################
+
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admindashboard');
+
         
     #################Adminnnnnn-Category########################
     Route::get('/admin/category/index', [AdminCategoryController::class, 'index'])->name('dashboard');
