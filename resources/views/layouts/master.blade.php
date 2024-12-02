@@ -59,40 +59,22 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-                                    <li class="current-list-item"><a href="#">Category</a>
+								<li class=""><a href="{{url('/')}}">Home</a>
+                                    <li class=""><a href="{{url('/')}}">Category</a>
 
-									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
-									</ul>
+									
 								</li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
+								
 								</li>
 								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
+									
 								</li>
 								<li><a href="contact.html">Contact</a></li>
 								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
+								<li><a href="{{url('/cart')}}">Cart</a>
+
 								</li>
 								<li><form action="{{ route('logout') }}" method="post">
 									@csrf
@@ -148,11 +130,10 @@
 					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
 						<div class="hero-text">
 							<div class="hero-text-tablecell">	
-								<p class="subtitle">coection of</p>
+								<p class="subtitle">collection of</p>
 								<h1>Devices</h1>
 								<div class="hero-btns">
-									<a href="shop.html" class="boxed-btn">Device Collection</a>
-									<a href="contact.html" class="bordered-btn">Contact Us</a>
+									<a href="{{url('/products/3')}}" class="boxed-btn">Visit shop</a>
 								</div>
 							</div>
 						</div>
@@ -167,11 +148,10 @@
 					<div class="col-lg-10 offset-lg-1 text-center">
 						<div class="hero-text">
 							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh Everyday</p>
-								<h1>100% Organic Collection</h1>
+								<p class="subtitle">Fresh Food</p>
+								<h1>you Can Choose your food  </h1>
 								<div class="hero-btns">
-									<a href="shop.html" class="boxed-btn">Visit Shop</a>
-									<a href="contact.html" class="bordered-btn">Contact Us</a>
+									<a href="{{url('/products/1')}}" class="boxed-btn">Visit Shop</a>
 								</div>
 							</div>
 						</div>
@@ -186,11 +166,10 @@
 					<div class="col-lg-10 offset-lg-1 text-right">
 						<div class="hero-text">
 							<div class="hero-text-tablecell">
-								<p class="subtitle">Mega Sale Going On!</p>
 								<h1>Get December Discount</h1>
+								<p class="subtitle">Mega Sale Going On!Choose Your Clothes</p>
 								<div class="hero-btns">
-									<a href="shop.html" class="boxed-btn">Visit Shop</a>
-									<a href="contact.html" class="bordered-btn">Contact Us</a>
+									<a href="{{url('/products/1')}}" class="boxed-btn">Visit Shop</a>
 								</div>
 							</div>
 						</div>

@@ -17,7 +17,7 @@
             <div class="col-lg-4 col-md-6 text-center strawberry" >
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img style="max-height: 250px;min-height:250px" src="{{url($item->image)}}" alt=""></a>
+                        <a href="single-product.html"><img style="max-height: 250px;min-height:250px" src="{{url('assets/img/products',$item->image)}}" alt=""></a>
                     </div>
                     <h3>{{$item->name}}</h3>
                     <p class="product-price"><span>Per one peace</span> {{$item->price}}$ </p>
